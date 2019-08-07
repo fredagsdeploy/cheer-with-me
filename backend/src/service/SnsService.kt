@@ -28,10 +28,17 @@ class SnsService(
             )
         )
 
+        val fcmSandbox = mapOf(
+            "notification" to mapOf(
+                "text" to message
+            )
+        )
+
         val apnsSandboxJson = ObjectMapper().writeValueAsString(apnsSandbox)
+        val fcmSandboxJson = ObjectMapper().writeValueAsString(fcmSandbox)
 
         val messageBody = mapOf(
-            "APNS_SANDBOX" to apnsSandboxJson
+            "APNS_SANDBOX" to apnsSandboxJson, "GCM" to fcmSandboxJson
         )
 
         val messageJson = ObjectMapper().writeValueAsString(messageBody)
