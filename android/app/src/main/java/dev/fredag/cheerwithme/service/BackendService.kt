@@ -32,8 +32,9 @@ class BackendService constructor(context: Context) {
             successListener(path, objectMapper, klass, callback),
             errorListener(callback)
         ) {
-            @Throws(AuthFailureError::class)
-            override fun getHeaders(): Map<String, String> = getAppHeaders()
+            override fun getHeaders(): MutableMap<String, String> = getAppHeaders()
+            //@Throws(AuthFailureError::class)
+            //override fun getHeaders(): Map<String, String> = getAppHeaders()
         }
         AppIOSingleton.getInstance(context!!).addToRequestQueue(request)
     }
@@ -47,14 +48,14 @@ class BackendService constructor(context: Context) {
             successListener(path, objectMapper, klass, callback),
             errorListener(callback)
         ) {
-            @Throws(AuthFailureError::class)
-            override fun getHeaders(): Map<String, String> = getAppHeaders()
+            //@Throws(AuthFailureError::class)
+            override fun getHeaders(): MutableMap<String, String> = getAppHeaders()
             override fun getBody(): ByteArray = objectMapper.writeValueAsBytes(body)
         }
         AppIOSingleton.getInstance(context!!).addToRequestQueue(request)
     }
 
-    private fun getAppHeaders(): Map<String, String> = mapOf(
+    private fun getAppHeaders(): MutableMap<String, String> = mutableMapOf(
         "Authorization" to "Bearer $token",
         "Content-Type" to "application/json"
     )
