@@ -18,9 +18,6 @@
             app:itemTextColor="@drawable/bottom_nav_icon_color_selector"
             app:labelVisibilityMode="unlabeled"
             app:elevation="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
             app:menu="@menu/bottom_nav_bar"/>
 
     <View

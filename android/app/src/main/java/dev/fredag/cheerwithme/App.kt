@@ -41,7 +41,7 @@ class App: FragmentActivity() {
                 retValue = true
             }
             R.id.navigation_profile -> {
-                switchToFragment = CheerViewFragment()
+                switchToFragment = FriendsFragment2()
                 retValue = true
             }
         }
